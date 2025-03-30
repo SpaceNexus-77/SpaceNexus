@@ -1,0 +1,163 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background: rgba(10, 13, 44, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.scrolled {
+  height: 60px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background: rgba(10, 13, 44, 0.95);
+}
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logoText {
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: 0.5rem;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLinks li {
+  position: relative;
+  margin: 0 1rem;
+}
+
+.navLinks li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.navLinks li a:hover,
+.navLinks li.active a {
+  color: #4facfe;
+}
+
+.navLinks li.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.wallet {
+  margin-left: 1rem;
+}
+
+.walletButton {
+  padding: 0.5rem 1.2rem;
+  background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.walletButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+}
+
+.mobileMenuButton {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.mobileMenuButton span {
+  height: 2px;
+  width: 100%;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 992px) {
+  .mobileMenuButton {
+    display: flex;
+  }
+  
+  .navLinks {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    flex-direction: column;
+    background: rgba(10, 13, 44, 0.95);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    transition: height 0.3s ease;
+  }
+  
+  .scrolled .navLinks {
+    top: 60px;
+  }
+  
+  .navLinks.active {
+    height: calc(100vh - 80px);
+  }
+  
+  .scrolled .navLinks.active {
+    height: calc(100vh - 60px);
+  }
+  
+  .navLinks li {
+    margin: 1.5rem 0;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .navLinks.active li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .wallet {
+    margin: 1.5rem 0;
+  }
+} 

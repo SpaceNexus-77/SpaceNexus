@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:3001
+
+  backend:
+    build: ./backend
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - ./backend/uploads:/app/uploads
+    environment:
+      - PORT=3001
+
+volumes:
+  uploads_data: 
