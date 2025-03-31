@@ -1,7 +1,7 @@
 # SpaceNexus - Pioneering Web3 for Space Exploration
 
 <div align="center">
-  <img src="space-logo.png" alt="SpaceNexus Logo" width="300" />
+  <img src="space-logo.svg" alt="SpaceNexus Logo" width="300" />
   <h3>Web3 x Space Technology</h3>
   <p>
     <a href="http://www.spacenexus.online" target="_blank">Official Website</a> |
